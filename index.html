@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>نادين ❤️ قلب حمودي</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%;font-family:'Cairo',sans-serif;background:#100519;color:#ffd9e5}
+body{overflow-x:hidden;background:
+radial-gradient(circle at 50% 20%,rgba(255,43,104,.12),transparent 28%),
+linear-gradient(145deg,#19031a 0%,#0d061c 48%,#10031a 100%)}
+
+.hidden{display:none!important}
+button,input{font-family:inherit}
+button{cursor:pointer}
+
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-60px;opacity:.45;animation:floatUp linear forwards;font-size:24px;filter:drop-shadow(0 0 8px #ff2f72)}
+@keyframes floatUp{
+  from{transform:translateY(0) rotate(0deg);opacity:0}
+  12%{opacity:.55}
+  100%{transform:translateY(-115vh) rotate(30deg);opacity:0}
+}
+
+.glow{position:relative}
+.glow:before{content:"";position:absolute;inset:-2px;border-radius:inherit;box-shadow:0 0 30px rgba(255,35,95,.2);pointer-events:none}
+
+.page{position:relative;z-index:1;min-height:100vh;padding:35px 16px 70px}
+.container{width:min(680px,100%);margin:auto}
+
+.card{
+  background:rgba(31,17,38,.82);
+  border:1px solid rgba(255,55,111,.45);
+  border-radius:30px;
+  padding:28px 20px;
+  box-shadow:0 0 28px rgba(255,30,90,.13),inset 0 0 40px rgba(255,0,92,.025);
+  backdrop-filter:blur(12px);
+}
+
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.login-card{text-align:center;padding:42px 22px 34px}
+.lock{font-size:65px;line-height:1;margin-bottom:22px}
+h1{margin:0;color:#ff799e;text-shadow:0 0 15px rgba(255,70,120,.6);font-size:35px;font-weight:800}
+.subtitle{font-size:16px;color:#e5ccd8;margin:18px 0 28px;line-height:2}
+.password{
+ width:100%;height:64px;border-radius:40px;border:3px solid #ff4774;
+ background:#110b15;color:#fff;text-align:center;font-size:27px;outline:none;
+ box-shadow:0 0 18px rgba(255,40,100,.1)
+}
+.password:focus{box-shadow:0 0 25px rgba(255,40,100,.3)}
+.hint{display:block;margin:20px 0;color:#dba9ba;text-decoration:underline;font-size:15px}
+.main-btn{
+ width:100%;height:62px;border:0;border-radius:34px;color:#fff;
+ background:linear-gradient(90deg,#f52250,#ff416c);
+ font-size:21px;font-weight:800;
+ box-shadow:0 12px 28px rgba(255,25,80,.25)
+}
+.emergency-link{display:block;color:#cbb1bf;margin-top:28px;text-decoration:none;font-size:15px}
+.error{color:#ff708e;min-height:26px;margin-top:12px;font-size:14px}
+
+.section-title{font-size:25px;font-weight:800;color:#ff9db5;text-align:center;margin:0 0 8px;text-shadow:0 0 13px rgba(255,80,130,.4)}
+.section-desc{text-align:center;color:#cdb6c1;font-size:13px;margin:0 0 22px;line-height:1.8}
+
+.hero{text-align:center;padding:45px 20px 30px}
+.hero .emoji{font-size:52px}
+.hero h2{font-size:31px;color:#ff799e;margin:12px 0 8px}
+.hero p{line-height:2;color:#e4cbd5;margin:0}
+.tag{display:inline-block;margin-top:15px;padding:8px 18px;border:1px solid #ff4e79;border-radius:30px;color:#ff9bb5;background:#220d1f}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.counter{
+ text-align:center;padding:23px 10px;border-radius:22px;
+ background:rgba(18,7,24,.75);border:1px solid rgba(255,67,110,.35)
+}
+.counter .icon{font-size:30px}
+.counter h3{font-size:18px;margin:9px 0;color:#ff9db5}
+.numbers{display:flex;justify-content:center;gap:8px;direction:rtl}
+.unit{min-width:52px}
+.num{display:block;font-size:24px;font-weight:800;color:#fff}
+.label{display:block;font-size:10px;color:#bdaab5}
+
+.message{
+ text-align:center;padding:35px 20px;line-height:2.3;font-size:20px;font-weight:700;color:#ffc0ce
+}
+.message p{margin:0 0 20px}
+.message .love{font-size:25px;color:#ff83a3;margin-top:25px}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.small-btn{
+ border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);
+ color:#ffe4ec;border-radius:28px;padding:11px 18px;font-size:14px
+}
+
+.game-area{text-align:center}
+.game-heart{
+ font-size:65px;border:0;background:none;transition:.12s;
+ filter:drop-shadow(0 0 12px #ff3974)
+}
+.game-heart:active{transform:scale(.8)}
+.progress{height:10px;background:#251326;border-radius:10px;overflow:hidden;margin:15px 0}
+.progress span{display:block;height:100%;width:0;background:#ff3c6c;border-radius:10px;transition:.2s}
+
+input.mood{
+ width:100%;height:52px;border-radius:25px;border:1px solid #5e3449;
+ background:#130b18;color:#fff;text-align:center;outline:0;padding:0 15px
+}
+.save{margin-top:10px;width:100%;height:48px;border:0;border-radius:25px;background:#ff3768;color:#fff;font-weight:700}
+
+.palette{display:flex;gap:10px;justify-content:center;margin:14px 0}
+.dot{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.4);cursor:pointer}
+
+.emergency{
+ display:block;text-decoration:none;text-align:center;padding:17px;border-radius:30px;
+ background:linear-gradient(90deg,#e91e45,#ff4b72);color:#fff;font-weight:800;font-size:18px;
+ box-shadow:0 12px 30px rgba(255,30,85,.18)
+}
+.note{text-align:center;color:#bdaab7;font-size:12px;margin-top:10px}
+
+.footer{text-align:center;color:#967c8c;font-size:12px;margin-top:28px}
+
+.music{
+ position:fixed;left:14px;bottom:14px;z-index:20;width:50px;height:50px;border-radius:50%;
+ border:1px solid #ff507b;background:rgba(35,10,30,.9);color:#fff;font-size:20px;
+ box-shadow:0 0 20px rgba(255,40,100,.2)
+}
+#player{position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;left:-20px;top:-20px}
+
+@media(max-width:520px){
+ .page{padding:22px 14px 55px}
+ .card{border-radius:27px;padding:24px 16px}
+ h1{font-size:31px}
+ .hero h2{font-size:27px}
+ .grid{grid-template-columns:1fr}
+ .message{font-size:18px}
+}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+
+<!-- Login -->
+<section id="loginPage" class="page login-wrap">
+ <div class="container">
+  <div class="card login-card glow">
+   <div class="lock">🔐</div>
+   <h1>نادين ❤️ قلب حمودي</h1>
+   <p class="subtitle">صباح الخير يا أجمل حاجة في يومي 🌸.. مستني الباسورد عشان ننوّر المكان!</p>
+   <input id="password" class="password" type="password" inputmode="numeric" maxlength="10" placeholder="الرقم السري السري">
+   <a href="#" class="hint" onclick="showHint(event)">نسيتي الباسورد؟ اضغطي للتلميح السري 🧐</a>
+   <button class="main-btn" onclick="login()">دخول لعالمنا ✨</button>
+   <div id="error" class="error"></div>
+   <a id="waEmergencyLogin" class="emergency-link" href="https://wa.me/201558462664" target="_blank">استغاثة يا حمودي؟ غششي الباسورد 📞</a>
+  </div>
+ </div>
+</section>
+
+<!-- Main -->
+<section id="mainPage" class="page hidden">
+ <div class="container">
+
+  <div class="card hero glow">
+   <div class="emoji">💗</div>
+   <h2>إلى نادين.. نبض قلبي وحبيبة أيامي.</h2>
+   <p>كل حاجة في الدنيا دي ممكن تتغير، إلا حبي ليكي.<br>إنتي النور اللي نور حياتي، والضحكة اللي بتفرّح قلبي.</p>
+   <span class="tag">بحبك يا أغلى ما عندي ❤️</span>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">💖 حكايتنا بتعدّي الأيام</h2>
+   <p class="section-desc">من أول يوم اتعرفنا فيه، كل ثانية بقت ليها معنى.</p>
+   <div class="grid">
+    <div class="counter">
+     <div class="icon">💞</div>
+     <h3>من يوم التعارف</h3>
+     <div id="sinceNumbers" class="numbers"></div>
+     <div style="margin-top:9px;color:#ff9db5;font-size:12px">12 / 06 / 2026</div>
+    </div>
+    <div class="counter">
+     <div class="icon">🎂</div>
+     <h3>عيد ميلاد نادين</h3>
+     <div id="birthdayNumbers" class="numbers"></div>
+     <div style="margin-top:9px;color:#ff9db5;font-size:12px">30 / 10</div>
+    </div>
+   </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">💌 رسالة من حمودي</h2>
+   <div class="message">
+    <p>إلى نادين..</p>
+    <p>عاوز أقولك إنك من أجمل الحاجات اللي حصلتلي، وإن وجودك في حياتي مخلّي كل يوم أحلى من اللي قبله.</p>
+    <p>مهما الدنيا اتغيرت، نفسي نفضل دايمًا بنتكلم ونحل أي حاجة سوا، ونفرح بكل لحظة حلوة تجمعنا.</p>
+    <p>إنتي النور اللي بينوّر أيامي والضحكة اللي بتفرّح قلبي.</p>
+    <div class="love">بحبك يا نادين ❤️<br>حمودي</div>
+   </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">🎯 لعبة صغيرة لنادين</h2>
+   <p class="section-desc">دوسي على القلب 15 مرة قبل ما الوقت يخلص ❤️</p>
+   <div class="game-area">
+    <div id="gameCount">0 / 15</div>
+    <div class="progress"><span id="gameProgress"></span></div>
+    <button class="game-heart" onclick="hitHeart()">❤️</button>
+    <div id="gameResult" style="min-height:28px;color:#ff9db5;font-weight:700"></div>
+    <button class="small-btn" onclick="resetGame()">إعادة اللعبة 🔄</button>
+   </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">🔮 مزاج نادين</h2>
+   <p class="section-desc">اكتبي حالتك دلوقتي وخلي حمودي يعرف 💕</p>
+   <input id="mood" class="mood" placeholder="مبسوطة، رايقة، محتاجة حضن...">
+   <button class="save" onclick="saveMood()">تحديث 📌</button>
+   <div id="moodResult" style="text-align:center;margin-top:12px;color:#ffb0c3"></div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">🎨 اختاري مود المكان</h2>
+   <p class="section-desc">اختاري اللون اللي على مزاجك.</p>
+   <div class="palette">
+    <div class="dot" style="background:#ff3d72" onclick="setAccent('#ff3d72')"></div>
+    <div class="dot" style="background:#b34dff" onclick="setAccent('#b34dff')"></div>
+    <div class="dot" style="background:#35cfff" onclick="setAccent('#35cfff')"></div>
+    <div class="dot" style="background:#ff9b38" onclick="setAccent('#ff9b38')"></div>
+   </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+   <h2 class="section-title">🚨 الطوارئ</h2>
+   <p class="section-desc">لو نادين محتاجة تكلم حمودي بسرعة ❤️</p>
+   <a class="emergency" href="https://wa.me/201558462664" target="_blank">💬 افتحي واتساب مع حمودي</a>
+   <div class="note">سيتم فتح محادثة واتساب على الرقم المسجل.</div>
+  </div>
+
+  <div class="card" style="margin-top:16px;text-align:center">
+   <h2 class="section-title">🎵 غنوتنا السرية</h2>
+   <p class="section-desc">اضغطي زر الموسيقى لو المتصفح منع التشغيل التلقائي.</p>
+   <button class="main-btn" style="max-width:330px" onclick="toggleMusic()">🎵 تشغيل / إيقاف الأغنية</button>
+  </div>
+
+  <div class="footer">صُنع بحب من حمودي إلى نادين ❤️</div>
+ </div>
+</section>
+
+<!-- Hidden YouTube player -->
+<iframe id="player" src="https://www.youtube.com/embed/h1zpQUCaVnA?enablejsapi=1&autoplay=0&loop=1&playlist=h1zpQUCaVnA&controls=0&playsinline=1"
+ allow="autoplay; encrypted-media"></iframe>
+
+<button id="musicBtn" class="music hidden" onclick="toggleMusic()">🎵</button>
+
+<script>
+const PASSWORD="3010";
+const WHATSAPP="201558462664";
+let musicOn=false;
+let gameHits=0;
+
+function login(){
+ const val=document.getElementById('password').value.trim();
+ const err=document.getElementById('error');
+ if(val===PASSWORD){
+   document.getElementById('loginPage').classList.add('hidden');
+   document.getElementById('mainPage').classList.remove('hidden');
+   document.getElementById('musicBtn').classList.remove('hidden');
+   window.scrollTo(0,0);
+   startCounters();
+   // محاولة تشغيل الأغنية؛ لو المتصفح منعها يبقى زر الموسيقى ظاهر
+   setTimeout(()=>playMusic(),350);
+ }else{
+   err.textContent="الباسورد مش صح يا نادين 🥺 جرّبي تاني.";
+ }
+}
+function showHint(e){
+ e.preventDefault();
+ document.getElementById('error').textContent="التلميح: تاريخ مهم لنادين 🎂";
+}
+document.getElementById('password').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+
+function playMusic(){
+ const p=document.getElementById('player');
+ p.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}','*');
+ musicOn=true;
+}
+function pauseMusic(){
+ const p=document.getElementById('player');
+ p.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');
+ musicOn=false;
+}
+function toggleMusic(){ musicOn ? pauseMusic() : playMusic(); }
+
+function makeNumbers(d,h,m,s){
+ return `<div class="unit"><span class="num">${d}</span><span class="label">يوم</span></div>
+ <div class="unit"><span class="num">${h}</span><span class="label">ساعة</span></div>
+ <div class="unit"><span class="num">${m}</span><span class="label">دقيقة</span></div>
+ <div class="unit"><span class="num">${s}</span><span class="label">ثانية</span></div>`;
+}
+
+function startCounters(){
+ const start=new Date(2026,5,12,0,0,0);
+ function updateSince(){
+  const now=new Date();
+  let diff=Math.max(0,now-start);
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById('sinceNumbers').innerHTML=makeNumbers(d,h,m,s);
+ }
+ function updateBirthday(){
+  const now=new Date();
+  let year=now.getFullYear();
+  let target=new Date(year,9,30,0,0,0);
+  if(target<=now) target=new Date(year+1,9,30,0,0,0);
+  let diff=target-now;
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById('birthdayNumbers').innerHTML=makeNumbers(d,h,m,s);
+ }
+ updateSince(); updateBirthday();
+ setInterval(updateSince,1000); setInterval(updateBirthday,1000);
+}
+
+function hitHeart(){
+ if(gameHits>=15)return;
+ gameHits++;
+ document.getElementById('gameCount').textContent=gameHits+" / 15";
+ document.getElementById('gameProgress').style.width=(gameHits/15*100)+"%";
+ if(gameHits===15) document.getElementById('gameResult').textContent="كسبتي يا نادين! 🥳❤️ حمودي فخور بيكي.";
+}
+function resetGame(){
+ gameHits=0;
+ document.getElementById('gameCount').textContent="0 / 15";
+ document.getElementById('gameProgress').style.width="0%";
+ document.getElementById('gameResult').textContent="";
+}
+function saveMood(){
+ const mood=document.getElementById('mood').value.trim();
+ document.getElementById('moodResult').textContent=mood ? "حمودي عرف إن مزاجك: "+mood+" ❤️" : "اكتبيلي مزاجك الأول يا نادين 💕";
+}
+function setAccent(c){
+ document.documentElement.style.setProperty('--accent',c);
+ document.querySelectorAll('.main-btn,.save').forEach(x=>x.style.background=`linear-gradient(90deg,${c},#ff416c)`);
+}
+
+function spawnHeart(){
+ const h=document.createElement('span');
+ h.className='heart';
+ const icons=['💗','💕','💖','💞','🌸','💘','❤️'];
+ h.textContent=icons[Math.floor(Math.random()*icons.length)];
+ h.style.left=Math.random()*100+'%';
+ h.style.fontSize=(16+Math.random()*20)+'px';
+ h.style.animationDuration=(6+Math.random()*8)+'s';
+ document.getElementById('hearts').appendChild(h);
+ setTimeout(()=>h.remove(),15000);
+}
+setInterval(spawnHeart,650);
+for(let i=0;i<10;i++) setTimeout(spawnHeart,i*300);
+</script>
+</body>
+</html>
